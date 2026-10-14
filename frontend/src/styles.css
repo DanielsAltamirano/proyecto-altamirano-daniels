@@ -1,0 +1,40 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+body { background: #f3f4f6; color: #1f2937; padding-bottom: 40px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+.topbar { background: #111827; color: #fff; padding: 15px 0; margin-bottom: 20px; }
+.topbar h1 { font-size: 1.5rem; }
+.badge { padding: 6px 12px; border-radius: 999px; font-weight: 600; font-size: 0.85rem; background: #374151; float: right; margin-top: -30px; }
+.badge.ok { background: #059669; } .badge.err { background: #dc2626; }
+
+.metrics { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+.metric-card { background: #fff; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.metric-card small { color: #6b7280; display: block; margin-bottom: 5px; }
+.metric-card strong { font-size: 1.2rem; }
+
+.grid { display: grid; grid-template-columns: 350px 1fr; gap: 20px; align-items: start; }
+@media (max-width: 850px) { .grid { grid-template-columns: 1fr; } }
+
+.card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+form { display: flex; flex-direction: column; gap: 12px; }
+label { font-size: 0.85rem; font-weight: 600; }
+input, select { padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; width: 100%; margin-top: 4px; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+button, .btn-link { cursor: pointer; padding: 8px 12px; border: none; border-radius: 6px; font-weight: 600; color: #fff; background: #2563eb; text-decoration: none; display: inline-block; }
+button:hover { background: #1d4ed8; }
+.btn-sec { background: #4b5563; }
+.btn-sm { padding: 5px 8px; font-size: 0.8rem; margin-right: 5px; }
+.btn-danger { background: #dc2626; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
+th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; }
+th { background: #f9fafb; }
+
+.pill { padding: 3px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: bold; }
+.prio-Alta { background: #fee2e2; color: #991b1b; }
+.prio-Media { background: #fef3c7; color: #92400e; }
+.prio-Baja { background: #dbeafe; color: #1e40af; }
+.est-Confirmada { background: #d1fae5; color: #065f46; }
+.est-Cancelada { background: #f3f4f6; color: #6b7280; text-decoration: line-through; }
+
+.alert { padding: 12px; border-radius: 6px; margin-bottom: 15px; background: #d1fae5; color: #065f46; font-weight: bold; display: none; }

@@ -1,0 +1,9 @@
+# Ignorar archivo de variables de entorno con contraseñas reales
+.env
+
+# Ignorar archivos temporales del sistema o del editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservación de Espacios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container">
+            <h1>Sistema de Reservación de Espacios</h1>
+            <div id="health-badge" class="badge">Verificando...</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Indicadores de Redis y Rendimiento -->
+        <div class="metrics">
+            <div class="metric-card"><small>Origen de la consulta</small><strong id="m-origen">-</strong></div>
+            <div class="metric-card"><small>Consultas al listado</small><strong id="m-contador">0</strong></div>
+            <div class="metric-card"><small>TTL de Caché</small><strong id="m-ttl">-</strong></div>
+        </div>
+
+        <div id="alert" class="alert"></div>
+
+        <div class="grid">
+            <!-- Formulario (POST) -->
+            <div class="card">
+                <h2>Nueva Reservación</h2><br>
+                <form id="form-res">
+                    <label>Espacio <input type="text" id="espacio" required></label>
+                    <label>Solicitante <input type="text" id="solicitante" required></label>
+                    <label>Correo <input type="email" id="correo" required></label>
+                    <div class="row-2">
+                        <label>Fecha <input type="date" id="fecha" required></label>
+                        <label>Prioridad 
+                            <select id="prioridad">
+                                <option value="Baja">Baja</option>
+                                <option value="Media" selected>Media</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="row-2">
+                        <label>Inicio <input type="time" id="inicio" required></label>
+                        <label>Fin <input type="time" id="fin" required></label>
+                    </div>
+                    <label>Motivo <input type="text" id="motivo" required></label>
+                    <button type="submit">Registrar</button>
+                </form>
+            </div>
+
+            <!-- Tabla y Filtro (GET, PUT, DELETE) -->
+            <div class="card">
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" id="buscar" placeholder="Buscar espacio o solicitante...">
+                    <button class="btn-sec" onclick="cargarDatos()">Buscar</button>
+                    <a href="/api/reservaciones?exportar=1" class="btn-link" target="_blank">JSON</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Espacio / Solicitante</th>
+                                <th>Fecha y Hora</th>
+                                <th>Prioridad / Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
